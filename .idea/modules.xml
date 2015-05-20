@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/django-VaiTerCopaSim.iml" filepath="$PROJECT_DIR$/django-VaiTerCopaSim.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VaiTerCopaSim-server.iml" filepath="$PROJECT_DIR$/VaiTerCopaSim-server.iml" />
     </modules>
   </component>
 </project>
