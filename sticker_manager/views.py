@@ -6,22 +6,22 @@ from models import *
 def get_sticker(request, sticker_id=1):
     print sticker_id
     s = Sticker.objects.get(pk=sticker_id)
-    return JsonResponse({'number': s.number, 'order': s.order, 'name': s.name, 'team': s.team, 'image': s.image})
+    return JsonResponse(s.dict())
 
 
 def add_sticker(request):
     pass
 
 
-def del_sticker(request):
+def del_sticker(request, sticker_id):
     pass
 
 
-def get_stats(request):
+def get_stats(request, sticker_id):
     pass
 
 
-def compare(request):
+def compare(request, user_id):
     pass
 
 
