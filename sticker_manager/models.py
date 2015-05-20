@@ -19,7 +19,24 @@ class NeededStickers(models.Model):
     sticker = models.ForeignKey(Sticker)
 
     def dict(self):
-        return {"user": self.user.id, "sticker": self.sticker.id}
+        return {"user": self.user.id, "sticker": self.sticker.dict()}
+
+    @staticmethod
+    def calculate_stats(user):
+        missing = NeededStickers.objects.find(user__id=user.id).order('sticker__order')
+
+        stats = {'collected': 649 - missing.size, 'missing': missing.size, 'teams': {}}
+
+        teams = ['Especiais', 'Estádios', 'Brasil', 'Croácia', 'México', 'Camarões', 'Espanha', 'Holanda', 'Chile',
+                 'Austrália', 'Colômbia', 'Grécia', 'Costa do Marfim', 'Japão', 'Uruguai', 'Costa Rica',
+                 'Inglaterra', 'Itália', 'Suiça', 'Equador', 'França', 'Honduras', 'Argentina' ,
+                 'Bósnia Herzegovina', 'Irã', 'Nigéria', 'Alemanha', 'Portugal', 'Gana', 'Estados Unidos',
+                 'Bélgica', 'Algéria', 'Rússia', 'Coréia', 'Propaganda']
+
+        for team in teams:
+            stats['teams'][team] = len([i for i in missing if i.sticker.team == team])
+
+        return stats
 
 
 class DuplicatedStickers(models.Model):
@@ -28,4 +45,4 @@ class DuplicatedStickers(models.Model):
     quantity = models.IntegerField()
 
     def dict(self):
-        return {"user": self.user.id, "sticker": self.sticker.id, "quantity": self.quantity}
+        return {"user": self.user.id, "sticker": self.sticker.dict(), "quantity": self.quantity}
