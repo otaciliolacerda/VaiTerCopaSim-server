@@ -37,15 +37,17 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'sticker_manager',
+    'stickerAPI',
+    'corsheaders',
 )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    #'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
+    #'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
@@ -101,3 +103,23 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CORS_URLS_REGEX = r'^/api/v1/.*$'
+CORS_ORIGIN_ALLOW_ALL = True
+
+LOGGING = {
+    'version': 1,
+    'handlers': {
+        'console':{
+            'level':'DEBUG',
+            'class':'logging.StreamHandler',
+            },
+        },
+    'loggers': {
+        'django.request': {
+            'handlers':['console'],
+            'propagate': True,
+            'level':'DEBUG',
+            }
+    },
+    }

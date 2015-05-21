@@ -39,7 +39,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='neededstickers',
             name='sticker',
-            field=models.ForeignKey(to='sticker_manager.Sticker'),
+            field=models.ForeignKey(to='stickerAPI.Sticker'),
         ),
         migrations.AddField(
             model_name='neededstickers',
@@ -49,7 +49,7 @@ class Migration(migrations.Migration):
         migrations.AddField(
             model_name='duplicatedstickers',
             name='sticker',
-            field=models.ForeignKey(to='sticker_manager.Sticker'),
+            field=models.ForeignKey(to='stickerAPI.Sticker'),
         ),
         migrations.AddField(
             model_name='duplicatedstickers',
