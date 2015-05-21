@@ -15,6 +15,9 @@ class Sticker(models.Model):
     def dict(self):
         return {"number": self.number, "order": self.order, "name": self.name, "team": self.team, "image": self.image}
 
+    def __str__(self):
+        return "Number: " + str(self.number)
+
 
 class NeededStickers(models.Model):
     user = models.ForeignKey(User)
@@ -40,6 +43,9 @@ class NeededStickers(models.Model):
 
         return stats
 
+    def __str__(self):
+        return "Number: " + str(self.sticker.number) + " - Owner: " + str(self.user.email)
+
 
 class DuplicatedStickers(models.Model):
     user = models.ForeignKey(User)
@@ -48,3 +54,6 @@ class DuplicatedStickers(models.Model):
 
     def dict(self):
         return {"user": self.user.id, "sticker": self.sticker.dict(), "quantity": self.quantity}
+
+    def __str__(self):
+        return "Number/Quantity: " + str(self.sticker.number) + "/" + str(self.quantity) + " - Owner: " + str(self.user.email)

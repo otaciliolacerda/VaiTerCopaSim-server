@@ -120,6 +120,11 @@ LOGGING = {
             'handlers':['console'],
             'propagate': True,
             'level':'DEBUG',
+            },
+        'VaiTerCopaSim': {
+            'handlers':['console'],
+            'propagate': True,
+            'level':'DEBUG',
             }
     },
-    }
+}
