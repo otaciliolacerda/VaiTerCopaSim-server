@@ -27,10 +27,10 @@ class NeededStickers(models.Model):
         return {"user": self.user.id, "sticker": self.sticker.dict()}
 
     @staticmethod
-    def calculate_stats(user):
-        missing = NeededStickers.objects.find(user__id=user.id).order('sticker__order')
+    def calculate_stats(user_id):
+        missing = NeededStickers.objects.filter(user__id=user_id).order_by('sticker__order')
 
-        stats = {'collected': 649 - missing.size, 'missing': missing.size, 'teams': {}}
+        stats = {'collected': 649 - missing.count(), 'missing': missing.count(), 'teams': {}}
 
         teams = ['Especiais', 'Estádios', 'Brasil', 'Croácia', 'México', 'Camarões', 'Espanha', 'Holanda', 'Chile',
                  'Austrália', 'Colômbia', 'Grécia', 'Costa do Marfim', 'Japão', 'Uruguai', 'Costa Rica',

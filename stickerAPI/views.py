@@ -52,3 +52,7 @@ def duplicated_stickers(request, user_id):
         needed = DuplicatedStickers.objects.filter(user__id=user_id)
         log.debug("DUPLICATED: " + str(needed))
         return JsonResponse([i.dict() for i in needed], safe=False)
+
+
+def statistics(request, user_id):
+    return JsonResponse(NeededStickers.calculate_stats(user_id))
