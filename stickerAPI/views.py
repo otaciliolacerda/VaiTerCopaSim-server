@@ -3,9 +3,16 @@ from models import *
 from django.core.exceptions import ObjectDoesNotExist
 from seed import *
 import logging
+import sys
 
 
-log = logging.getLogger("VaiTerCopaSim")
+log = logging.getLogger("[VaiTerCopaSim]")
+log.setLevel(logging.DEBUG)
+ch = logging.StreamHandler(sys.stdout)
+ch.setLevel(logging.DEBUG)
+formatter = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+ch.setFormatter(formatter)
+log.addHandler(ch)
 
 
 def logger(fn):
