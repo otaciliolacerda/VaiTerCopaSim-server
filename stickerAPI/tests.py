@@ -58,3 +58,55 @@ class NeededStickersTests(TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.resolver_match.func, needed_stickers)
 
+
+class DuplicatedStickersTests(TestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        # Set up data for the whole TestCase
+        seed()
+
+    def test_put_duplicated_stickers(self):
+        client = Client()
+        response = client.put('/api/v1/sticker/1/duplicated/?stickers=1,2,3')
+
+        duplicated = DuplicatedStickers.objects.all()
+
+        self.assertEqual(len(duplicated), 3)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.resolver_match.func, duplicated_stickers)
+
+    def test_get_duplicated_stickers(self):
+        client = Client()
+        client.put('/api/v1/sticker/1/duplicated/?stickers=1,2,3')
+
+        response = client.get('/api/v1/sticker/1/duplicated/')
+
+        duplicated = DuplicatedStickers.objects.all()
+
+        self.assertEqual(len(duplicated), 3)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(json(duplicated), response.content)
+        self.assertEqual(response.resolver_match.func, duplicated_stickers)
+
+    def test_put_should_increment_existing_duplicated_stickers(self):
+        client = Client()
+        response = client.put('/api/v1/sticker/1/duplicated/?stickers=1,1,1')
+
+        duplicated = DuplicatedStickers.objects.all()
+
+        self.assertEqual(len(duplicated), 1)
+        self.assertEqual(duplicated[0].quantity, 3)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.resolver_match.func, duplicated_stickers)
+
+    def test_should_throw_error_if_user_is_invalid(self):
+        client = Client()
+        response = client.put('/api/v1/sticker/2/duplicated/?stickers=1')
+
+        duplicated = DuplicatedStickers.objects.all()
+
+        self.assertEqual(len(duplicated), 0)
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.resolver_match.func, duplicated_stickers)
+
