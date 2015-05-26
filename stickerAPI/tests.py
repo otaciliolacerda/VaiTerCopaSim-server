@@ -110,3 +110,40 @@ class DuplicatedStickersTests(TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.resolver_match.func, duplicated_stickers)
 
+
+class StatisticsTests(TestCase):
+
+    @classmethod
+    def setUpTestData(cls):
+        # Set up data for the whole TestCase
+        seed()
+
+    def test_get_duplicated_stickers(self):
+        sticker = Sticker.objects.get(number='L1')
+        user = User.objects.get(pk=1)
+        NeededStickers(sticker=sticker, user=user).save()
+
+        client = Client()
+        response = client.get('/api/v1/sticker/1/statistics/')
+
+        stats = NeededStickers.calculate_stats(1)
+
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(JsonResponse(stats).content, response.content)
+        self.assertEqual(response.resolver_match.func, statistics)
+
+        #In this scenario we have only one sticker missing (number 'L1' - advertisement category) so we should have
+        #only 1 missing and 648 collected
+        self.assertEqual(stats['collected'], 648)
+        self.assertEqual(stats['missing'], 1)
+        for key, value in stats['teams'].iteritems():
+            if key == 'Propaganda':
+                self.assertEqual(value, 1)
+            else:
+                self.assertEqual(value, 0)
+
+    def test_should_throw_error_if_user_is_invalid(self):
+        client = Client()
+        response = client.put('/api/v1/sticker/2/statistics/')
+        self.assertEqual(response.status_code, 400)
+        self.assertEqual(response.resolver_match.func, statistics)

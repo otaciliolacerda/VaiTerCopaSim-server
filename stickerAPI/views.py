@@ -61,7 +61,7 @@ def needed_stickers(request, user_id):
 
         if request.method == 'GET':
             needed = run_secure(NeededStickers.objects.filter, user__id=user_id)
-            return JsonResponse([i.dict() for i in needed], safe=False, status=200)
+            return JsonResponse([i.dict() for i in needed], safe=False)
 
         elif request.method == 'PUT':
             stickers = request.REQUEST.get('stickers', None)
@@ -97,7 +97,7 @@ def duplicated_stickers(request, user_id):
 
         if request.method == 'GET':
             needed = run_secure(DuplicatedStickers.objects.filter,user__id=user_id)
-            return JsonResponse([i.dict() for i in needed], safe=False, status=200)
+            return JsonResponse([i.dict() for i in needed], safe=False)
 
         elif request.method == 'PUT':
             stickers = request.REQUEST.get('stickers', None)
