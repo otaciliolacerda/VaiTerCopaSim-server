@@ -66,10 +66,11 @@
       <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/stickerAPI/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.18488085" vertical-offset="0" max-vertical-offset="1830">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.53097343" vertical-offset="255" max-vertical-offset="1860">
+              <caret line="75" column="40" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
               <folding>
-                <element signature="e#0#60#0" expanded="true" />
+                <element signature="e#0#25#0" expanded="true" />
+                <element signature="e#464#975#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -78,10 +79,11 @@
       <file leaf-file-name="tests.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stickerAPI/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+              <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
+                <element signature="e#142#206#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -90,9 +92,11 @@
       <file leaf-file-name="seed.py" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/stickerAPI/seed.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3" max-vertical-offset="1425">
-              <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-              <folding />
+            <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1485">
+              <caret line="20" column="170" selection-start-line="20" selection-start-column="170" selection-end-line="20" selection-end-column="170" />
+              <folding>
+                <element signature="e#49#79#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -528,7 +532,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="540">
           <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
           <folding>
-            <element signature="e#0#60#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#464#975#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -570,7 +575,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
           <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
           <folding>
-            <element signature="e#0#60#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#464#975#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -619,7 +625,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="540">
           <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
           <folding>
-            <element signature="e#0#60#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#464#975#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -668,7 +675,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="540">
           <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
           <folding>
-            <element signature="e#0#60#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#464#975#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -717,7 +725,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="405" max-vertical-offset="540">
           <caret line="27" column="23" selection-start-line="27" selection-start-column="23" selection-end-line="27" selection-end-column="23" />
           <folding>
-            <element signature="e#0#60#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#464#975#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -766,7 +775,8 @@
         <state vertical-scroll-proportion="0.0" vertical-offset="60" max-vertical-offset="540">
           <caret line="4" column="25" selection-start-line="4" selection-start-column="25" selection-end-line="4" selection-end-column="25" />
           <folding>
-            <element signature="e#0#60#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#464#975#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -871,21 +881,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stickerAPI/seed.py">
+    <entry file="file://$PROJECT_DIR$/stickerAPI/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1425">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
+          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stickerAPI/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="255">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -897,28 +897,42 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stickerAPI/models.py">
+    <entry file="file://$PROJECT_DIR$/stickerAPI/seed.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="960">
-          <caret line="17" column="22" selection-start-line="17" selection-start-column="22" selection-end-line="17" selection-end-column="22" />
-          <folding />
+        <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1485">
+          <caret line="20" column="170" selection-start-line="20" selection-start-column="170" selection-end-line="20" selection-end-column="170" />
+          <folding>
+            <element signature="e#49#79#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file:///Library/Python/2.7/site-packages/django/http/response.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.33306515" vertical-offset="6546" max-vertical-offset="7830">
-          <caret line="484" column="6" selection-start-line="484" selection-start-column="6" selection-end-line="484" selection-end-column="6" />
+        <state vertical-scroll-proportion="0.35720032" vertical-offset="996" max-vertical-offset="7830">
+          <caret line="116" column="28" selection-start-line="116" selection-start-column="17" selection-end-line="116" selection-end-column="28" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stickerAPI/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="975">
+          <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+            <element signature="e#142#206#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/stickerAPI/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.18488085" vertical-offset="0" max-vertical-offset="1830">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.53097343" vertical-offset="255" max-vertical-offset="1860">
+          <caret line="75" column="40" selection-start-line="75" selection-start-column="40" selection-end-line="75" selection-end-column="40" />
           <folding>
-            <element signature="e#0#60#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
+            <element signature="e#464#975#0" expanded="false" />
           </folding>
         </state>
       </provider>

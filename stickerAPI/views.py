@@ -1,6 +1,6 @@
-from django.http import JsonResponse, HttpResponseBadRequest
+from django.http import *
 from models import *
-from django.core.exceptions import ObjectDoesNotExist
+from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
 from seed import *
 import logging
 import sys
@@ -33,6 +33,17 @@ def logger(fn):
     return inner
 
 
+def run_secure(operation, **kwargs):
+    try:
+        return operation(**kwargs)
+    except ObjectDoesNotExist:
+        return None
+    except MultipleObjectsReturned:
+        raise Exception()
+    except Exception as e:
+        raise e
+
+
 @logger
 def needed_stickers(request, user_id):
     '''
@@ -43,25 +54,30 @@ def needed_stickers(request, user_id):
     :param user_id:
     :return:
     '''
-    if request.method == 'GET':
-        needed = NeededStickers.objects.filter(user__id=user_id)
-        return JsonResponse([i.dict() for i in needed], safe=False)
-    elif request.method == 'PUT':
-        stickers = request.REQUEST.get('stickers', None)
-        if stickers:
-            for i in stickers.split(','):
-                stick = None
-                try:
-                    user = User.objects.get(pk=user_id)
-                    stick = Sticker.objects.get(number=i)
-                    NeededStickers.objects.get(sticker__number=i, user__id=user_id)
-                except ObjectDoesNotExist:
-                    NeededStickers(user=user, sticker=stick).save()
-                    continue
-            return JsonResponse({})
-    elif request.method == "DELETE":
-        pass
-    else:
+    try:
+        user = run_secure(User.objects.get, pk=user_id)
+        print user
+        if not user:
+            return HttpResponseNotAllowed()
+
+        if request.method == 'GET':
+            needed = run_secure(NeededStickers.objects.filter, user__id=user_id)
+            return JsonResponse([i.dict() for i in needed], safe=False, status=200)
+
+        elif request.method == 'PUT':
+            stickers = request.REQUEST.get('stickers', None)
+            if stickers:
+                for i in stickers.split(','):
+                    stick = run_secure(Sticker.objects.get, number=i)
+                    if stick:
+                        run_secure(NeededStickers.objects.get_or_create, sticker__number=i, user__id=user_id, defaults={'user': user, 'sticker': stick})
+                return JsonResponse({}, status=201)
+
+        elif request.method == "DELETE":
+            pass
+        else:
+            return HttpResponseBadRequest()
+    except:
         return HttpResponseBadRequest()
 
 

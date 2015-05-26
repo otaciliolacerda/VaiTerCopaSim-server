@@ -18,6 +18,8 @@ def add_normal_stickers(starting_order_number, ending_order_number, order_offset
 
 
 def seed():
+    User(username='otacilio', is_active=True, email='otaciliolacerda@gmail.com', password=u'pbkdf2_sha256$20000$dUqVC3Yg4Eaq$HEXxt7lM4vxhha3PMJbRCtyEkghdFpNub8tYzpe9XWk=').save()
+
     # First, special sticker
     sticker = Sticker(number="00", order=0, image="00.jpg", team="Especiais")
     sticker.save()
