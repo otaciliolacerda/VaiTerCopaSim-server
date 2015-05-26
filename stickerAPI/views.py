@@ -73,7 +73,15 @@ def needed_stickers(request, user_id):
                 return JsonResponse({}, status=201)
 
         elif request.method == "DELETE":
-            pass
+            sticker = request.REQUEST.get('sticker', None)
+            if sticker:
+                stick = run_secure(Sticker.objects.get, number=sticker)
+                if stick:
+                    needed = run_secure(NeededStickers.objects.get, sticker__number=sticker, user__id=user_id)
+                    if needed:
+                        needed.delete()
+            return JsonResponse({})
+
         else:
             return HttpResponseBadRequest()
     except:
@@ -118,7 +126,11 @@ def duplicated_stickers(request, user_id):
                 if stick:
                     duplicated = run_secure(DuplicatedStickers.objects.get, sticker__number=sticker, user__id=user_id)
                     if duplicated:
-                        stick.delete()
+                        if duplicated.quantity > 1:
+                            duplicated.quantity -= 1
+                            duplicated.save()
+                        else:
+                            duplicated.delete()
             return JsonResponse({})
 
         else:

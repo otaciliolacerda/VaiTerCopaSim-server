@@ -58,6 +58,25 @@ class NeededStickersTests(TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.resolver_match.func, needed_stickers)
 
+    def test_delete_needed_stickers(self):
+        client = Client()
+        response = client.put('/api/v1/sticker/1/needed/?stickers=1,2,3')
+
+        needed = NeededStickers.objects.all()
+
+        self.assertEqual(len(needed), 3)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.resolver_match.func, needed_stickers)
+
+        #Now deleting one of the created stickers
+        response = client.delete('/api/v1/sticker/1/needed/?sticker=2')
+
+        needed = NeededStickers.objects.all()
+
+        self.assertEqual(len(needed), 2)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.resolver_match.func, needed_stickers)
+
 
 class DuplicatedStickersTests(TestCase):
 
@@ -128,6 +147,27 @@ class DuplicatedStickersTests(TestCase):
         self.assertEqual(len(duplicated), 2)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(response.resolver_match.func, duplicated_stickers)
+
+    def test_delete_duplicated_stickers_should_decrease_quantity(self):
+        client = Client()
+        response = client.put('/api/v1/sticker/1/duplicated/?stickers=1,1,1')
+
+        duplicated = DuplicatedStickers.objects.all()
+
+        self.assertEqual(len(duplicated), 1)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.resolver_match.func, duplicated_stickers)
+        self.assertEqual(duplicated[0].quantity, 3)
+
+        #Now deleting one of the created stickers
+        response = client.delete('/api/v1/sticker/1/duplicated/?sticker=1')
+
+        duplicated = DuplicatedStickers.objects.all()
+
+        self.assertEqual(len(duplicated), 1)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.resolver_match.func, duplicated_stickers)
+        self.assertEqual(duplicated[0].quantity, 2)
 
 
 class StatisticsTests(TestCase):
