@@ -47,7 +47,6 @@ def seed():
         sticker = Sticker(number=number, order=i, image=number+".jpg")
         sticker.save()
 
-
     set_team(1,7,"Especiais")
     set_team(8,31,"Estádios")
     set_team(32,50,"Brasil")
