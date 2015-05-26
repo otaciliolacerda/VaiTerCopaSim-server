@@ -110,6 +110,25 @@ class DuplicatedStickersTests(TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertEqual(response.resolver_match.func, duplicated_stickers)
 
+    def test_delete_duplicated_stickers(self):
+        client = Client()
+        response = client.put('/api/v1/sticker/1/duplicated/?stickers=1,2,3')
+
+        duplicated = DuplicatedStickers.objects.all()
+
+        self.assertEqual(len(duplicated), 3)
+        self.assertEqual(response.status_code, 201)
+        self.assertEqual(response.resolver_match.func, duplicated_stickers)
+
+        #Now deleting one of the created stickers
+        response = client.delete('/api/v1/sticker/1/duplicated/?sticker=2')
+
+        duplicated = DuplicatedStickers.objects.all()
+
+        self.assertEqual(len(duplicated), 2)
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.resolver_match.func, duplicated_stickers)
+
 
 class StatisticsTests(TestCase):
 

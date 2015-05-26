@@ -103,15 +103,24 @@ def duplicated_stickers(request, user_id):
             stickers = request.REQUEST.get('stickers', None)
             if stickers:
                 for i in stickers.split(','):
-                    stick = Sticker.objects.get(number=i)
-                    obj, created = run_secure(DuplicatedStickers.objects.get_or_create, sticker__number=i, user__id=user_id, defaults={'user': user, 'sticker': stick, 'quantity': 1})
-                    if not created:
-                        obj.quantity += 1
-                        obj.save()
+                    stick = run_secure(Sticker.objects.get, number=i)
+                    if stick:
+                        obj, created = run_secure(DuplicatedStickers.objects.get_or_create, sticker__number=i, user__id=user_id, defaults={'user': user, 'sticker': stick, 'quantity': 1})
+                        if not created:
+                            obj.quantity += 1
+                            obj.save()
                 return JsonResponse({}, status=201)
 
         elif request.method == "DELETE":
-            pass
+            sticker = request.REQUEST.get('sticker', None)
+            if sticker:
+                stick = run_secure(Sticker.objects.get, number=sticker)
+                if stick:
+                    duplicated = run_secure(DuplicatedStickers.objects.get, sticker__number=sticker, user__id=user_id)
+                    if duplicated:
+                        stick.delete()
+            return JsonResponse({})
+
         else:
             return HttpResponseBadRequest()
     except:
