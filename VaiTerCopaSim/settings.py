@@ -39,6 +39,8 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'stickerAPI',
     'corsheaders',
+    'social.apps.django_app.default',
+    'oauth2_provider',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -46,7 +48,7 @@ MIDDLEWARE_CLASSES = (
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     #'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
+    #'django.contrib.auth.middleware.AuthenticationMiddleware',
     #'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
@@ -127,4 +129,20 @@ LOGGING = {
             'level':'DEBUG',
             }
     },
+}
+
+SOCIAL_AUTH_FACEBOOK_KEY = '768817646470532'
+SOCIAL_AUTH_FACEBOOK_SECRET = '06d7c65242f9f70e602a8a5635179904'
+SOCIAL_AUTH_FACEBOOK_SCOPE = ['id,name,email']
+
+#add the required authentication backends
+AUTHENTICATION_BACKENDS = (
+'social.backends.facebook.FacebookAppOAuth2',
+'social.backends.facebook.FacebookOAuth2',
+'django.contrib.auth.backends.ModelBackend',
+)
+
+OAUTH2_PROVIDER = {
+    # this is the list of available scopes
+    'SCOPES': {'read': 'Read scope', 'write': 'Write scope'}
 }

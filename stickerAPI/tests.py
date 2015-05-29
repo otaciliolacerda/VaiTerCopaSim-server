@@ -13,7 +13,7 @@ class NeededStickersTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         # Set up data for the whole TestCase
-        seed()
+        seed(True)
 
     def test_put_needed_stickers(self):
         client = Client()
@@ -83,7 +83,7 @@ class DuplicatedStickersTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         # Set up data for the whole TestCase
-        seed()
+        seed(True)
 
     def test_put_duplicated_stickers(self):
         client = Client()
@@ -175,7 +175,7 @@ class StatisticsTests(TestCase):
     @classmethod
     def setUpTestData(cls):
         # Set up data for the whole TestCase
-        seed()
+        seed(True)
 
     def test_get_duplicated_stickers(self):
         sticker = Sticker.objects.get(number='L1')
