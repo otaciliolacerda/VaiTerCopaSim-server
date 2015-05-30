@@ -18,7 +18,6 @@ class FillRequestMiddleware:
     def process_request(self, request):
         try:
             dict = json.loads(request.body)
-            print 'DICT ', dict
             copy = request.POST.copy()
             copy.update(dict)
             request.POST = copy
