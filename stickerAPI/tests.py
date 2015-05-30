@@ -14,9 +14,19 @@ class RequestTestHelper():
         self.url = '/api/v1/sticker/needed/'
         self.token = token
 
-    def get_request(self, method, data):
+    def get_request(self, method, data, is_query=False):
         fn = getattr(self.factory, method)
-        request = fn(self.url, data)
+        request = None
+        if is_query:
+            self.url += '?'
+            for key, value in data.iteritems():
+                self.url += str(key) + '=' + str(value)
+
+            print self.url
+            request = fn(self.url)
+        else:
+            request = fn(self.url, data)
+
         #Put the token in the headers for all requests
         request.META['HTTP_AUTHORIZATION'] = 'Bearer %s' % self.token.token
 
@@ -86,7 +96,7 @@ class NeededStickersTests(TestCase):
         #Now deleting one of the created stickers
         data = {'sticker': '2'}
 
-        request = self.helper.get_request('delete', data)
+        request = self.helper.get_request('delete', data, is_query=True)
         response = needed_stickers(request)
 
         needed = NeededStickers.objects.all()
@@ -149,7 +159,7 @@ class DuplicatedStickersTests(TestCase):
 
         #Now deleting one of the created stickers
         data = {'sticker': '2'}
-        request = self.helper.get_request('delete', data)
+        request = self.helper.get_request('delete', data, is_query=True)
         response = duplicated_stickers(request)
 
         duplicated = DuplicatedStickers.objects.all()
@@ -170,7 +180,7 @@ class DuplicatedStickersTests(TestCase):
 
         #Now deleting one of the created stickers
         data = {'sticker': '1'}
-        request = self.helper.get_request('delete', data)
+        request = self.helper.get_request('delete', data, is_query=True)
         response = duplicated_stickers(request)
 
         duplicated = DuplicatedStickers.objects.all()

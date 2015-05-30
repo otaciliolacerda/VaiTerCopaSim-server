@@ -75,7 +75,7 @@ def needed_stickers(request):
                 return JsonResponse({}, status=201)
 
         elif request.method == "DELETE":
-            sticker = request.POST.get('sticker', None)
+            sticker = request.GET.get('sticker', None)
             if sticker:
                 stick = run_secure(Sticker.objects.get, number=sticker)
                 if stick:
@@ -122,7 +122,7 @@ def duplicated_stickers(request):
                 return JsonResponse({}, status=201)
 
         elif request.method == "DELETE":
-            sticker = request.POST.get('sticker', None)
+            sticker = request.GET.get('sticker', None)
             if sticker:
                 stick = run_secure(Sticker.objects.get, number=sticker)
                 if stick:

@@ -36,47 +36,44 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/VaiTerCopaSim/urls.py">
+      <file leaf-file-name="views.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/stickerAPI/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-              <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/stickerAPI/urls.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-              <caret line="9" column="29" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="29" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+              <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
               <folding>
-                <element signature="e#25#57#0" expanded="true" />
+                <element signature="e#501#1046#0" expanded="false" />
+                <element signature="e#1090#1285#0" expanded="false" />
+                <element signature="e#1352#2918#0" expanded="false" />
+                <element signature="e#2989#4923#0" expanded="false" />
+                <element signature="e#4985#5333#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="urls.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/auth/urls.py">
+      <file leaf-file-name="tests.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/stickerAPI/tests.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
-              <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/auth/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.7843926" vertical-offset="0" max-vertical-offset="1243">
-              <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+            <state vertical-scroll-proportion="0.22928399" vertical-offset="0" max-vertical-offset="1243">
+              <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
               <folding>
-                <element signature="e#0#97#0" expanded="true" />
-                <element signature="e#1531#1666#0" expanded="false" />
-                <element signature="e#2061#2480#0" expanded="false" />
+                <element signature="e#0#19#0" expanded="true" />
+                <element signature="e#226#1054#0" expanded="false" />
+                <element signature="e#1099#3085#0" expanded="false" />
+                <element signature="e#1332#1601#0" expanded="false" />
+                <element signature="e#1651#2064#0" expanded="false" />
+                <element signature="e#2136#2405#0" expanded="false" />
+                <element signature="e#2466#3085#0" expanded="false" />
+                <element signature="e#3142#6098#0" expanded="false" />
+                <element signature="e#3167#3329#0" expanded="false" />
+                <element signature="e#3383#3667#0" expanded="false" />
+                <element signature="e#3721#4157#0" expanded="false" />
+                <element signature="e#4237#4573#0" expanded="false" />
+                <element signature="e#4630#5271#0" expanded="false" />
+                <element signature="e#6139#7215#0" expanded="false" />
+                <element signature="e#6164#6326#0" expanded="false" />
+                <element signature="e#6380#7215#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -86,7 +83,7 @@
         <entry file="file://$PROJECT_DIR$/auth/tests.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-              <caret line="66" column="11" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
+              <caret line="8" column="33" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="33" />
               <folding>
                 <element signature="e#0#32#0" expanded="true" />
               </folding>
@@ -114,12 +111,12 @@
         <option value="$PROJECT_DIR$/stickerAPI/urls.py" />
         <option value="$PROJECT_DIR$/VaiTerCopaSim/urls.py" />
         <option value="$PROJECT_DIR$/stickerAPI/seed.py" />
-        <option value="$PROJECT_DIR$/stickerAPI/views.py" />
         <option value="$PROJECT_DIR$/VaiTerCopaSim/settings.py" />
-        <option value="$PROJECT_DIR$/stickerAPI/tests.py" />
         <option value="$PROJECT_DIR$/stickerAPI/middleware.py" />
         <option value="$PROJECT_DIR$/auth/views.py" />
+        <option value="$PROJECT_DIR$/stickerAPI/views.py" />
         <option value="$PROJECT_DIR$/auth/tests.py" />
+        <option value="$PROJECT_DIR$/stickerAPI/tests.py" />
       </list>
     </option>
   </component>
@@ -514,7 +511,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="1363" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -796,30 +793,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/stickerAPI/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="240">
-          <caret line="9" column="29" selection-start-line="9" selection-start-column="19" selection-end-line="9" selection-end-column="29" />
-          <folding>
-            <element signature="e#25#57#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stickerAPI/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25341916" vertical-offset="0" max-vertical-offset="1243">
-          <caret line="90" column="0" selection-start-line="90" selection-start-column="0" selection-end-line="90" selection-end-column="0" />
-          <folding>
-            <element signature="e#501#1046#0" expanded="false" />
-            <element signature="e#1090#1285#0" expanded="false" />
-            <element signature="e#1352#2919#0" expanded="false" />
-            <element signature="e#2990#4925#0" expanded="false" />
-            <element signature="e#4987#5335#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/stickerAPI/middleware.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.24135157" vertical-offset="0" max-vertical-offset="1243">
@@ -832,39 +805,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.1689461" vertical-offset="0" max-vertical-offset="1243">
           <caret line="15" column="47" selection-start-line="15" selection-start-column="47" selection-end-line="15" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/stickerAPI/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24135157" vertical-offset="0" max-vertical-offset="1243">
-          <caret line="20" column="75" selection-start-line="20" selection-start-column="75" selection-end-line="20" selection-end-column="75" />
-          <folding>
-            <element signature="e#0#19#0" expanded="true" />
-            <element signature="e#825#2796#0" expanded="false" />
-            <element signature="e#1058#1327#0" expanded="false" />
-            <element signature="e#1377#1790#0" expanded="false" />
-            <element signature="e#1862#2131#0" expanded="false" />
-            <element signature="e#2192#2796#0" expanded="false" />
-            <element signature="e#2853#5779#0" expanded="false" />
-            <element signature="e#2878#3040#0" expanded="false" />
-            <element signature="e#3094#3378#0" expanded="false" />
-            <element signature="e#3432#3868#0" expanded="false" />
-            <element signature="e#3948#4284#0" expanded="false" />
-            <element signature="e#4341#4967#0" expanded="false" />
-            <element signature="e#5049#5779#0" expanded="false" />
-            <element signature="e#5820#6896#0" expanded="false" />
-            <element signature="e#5845#6007#0" expanded="false" />
-            <element signature="e#6061#6896#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/auth/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="225">
-          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
           <folding />
         </state>
       </provider>
@@ -921,22 +861,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/VaiTerCopaSim/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="435">
-          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/VaiTerCopaSim/settings.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2310">
-          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Python/2.7/site-packages/mock.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.5478681" vertical-offset="32676" max-vertical-offset="35580">
@@ -953,16 +877,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/auth/tests.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
-          <caret line="66" column="11" selection-start-line="66" selection-start-column="11" selection-end-line="66" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file:///Library/Python/2.7/site-packages/django/http/response.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39662108" vertical-offset="6587" max-vertical-offset="7830">
@@ -971,14 +885,97 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/auth/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.07240547" vertical-offset="0" max-vertical-offset="1243">
+          <caret line="7" column="21" selection-start-line="7" selection-start-column="21" selection-end-line="7" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stickerAPI/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.08447305" vertical-offset="0" max-vertical-offset="1243">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+          <folding>
+            <element signature="e#25#57#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VaiTerCopaSim/urls.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.26548672" vertical-offset="0" max-vertical-offset="1243">
+          <caret line="23" column="1" selection-start-line="23" selection-start-column="1" selection-end-line="23" selection-end-column="1" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/VaiTerCopaSim/settings.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2310">
+          <caret line="46" column="4" selection-start-line="46" selection-start-column="4" selection-end-line="46" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/auth/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7843926" vertical-offset="0" max-vertical-offset="1243">
-          <caret line="69" column="27" selection-start-line="69" selection-start-column="27" selection-end-line="69" selection-end-column="27" />
+        <state vertical-scroll-proportion="0.38616252" vertical-offset="0" max-vertical-offset="1243">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
           <folding>
             <element signature="e#0#97#0" expanded="true" />
             <element signature="e#1531#1666#0" expanded="false" />
             <element signature="e#2061#2480#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stickerAPI/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="540">
+          <caret line="50" column="29" selection-start-line="50" selection-start-column="29" selection-end-line="50" selection-end-column="29" />
+          <folding>
+            <element signature="e#501#1046#0" expanded="false" />
+            <element signature="e#1090#1285#0" expanded="false" />
+            <element signature="e#1352#2918#0" expanded="false" />
+            <element signature="e#2989#4923#0" expanded="false" />
+            <element signature="e#4985#5333#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/auth/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1080">
+          <caret line="8" column="33" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="33" />
+          <folding>
+            <element signature="e#0#32#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/stickerAPI/tests.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.22928399" vertical-offset="0" max-vertical-offset="1243">
+          <caret line="221" column="0" selection-start-line="221" selection-start-column="0" selection-end-line="221" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#226#1054#0" expanded="false" />
+            <element signature="e#1099#3085#0" expanded="false" />
+            <element signature="e#1332#1601#0" expanded="false" />
+            <element signature="e#1651#2064#0" expanded="false" />
+            <element signature="e#2136#2405#0" expanded="false" />
+            <element signature="e#2466#3085#0" expanded="false" />
+            <element signature="e#3142#6098#0" expanded="false" />
+            <element signature="e#3167#3329#0" expanded="false" />
+            <element signature="e#3383#3667#0" expanded="false" />
+            <element signature="e#3721#4157#0" expanded="false" />
+            <element signature="e#4237#4573#0" expanded="false" />
+            <element signature="e#4630#5271#0" expanded="false" />
+            <element signature="e#6139#7215#0" expanded="false" />
+            <element signature="e#6164#6326#0" expanded="false" />
+            <element signature="e#6380#7215#0" expanded="false" />
           </folding>
         </state>
       </provider>
