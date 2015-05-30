@@ -1,12 +1,14 @@
-from django.http import HttpResponseBadRequest, HttpResponseForbidden, JsonResponse
+from django.http import HttpResponseBadRequest, HttpResponseForbidden, JsonResponse, HttpResponse
 from social.apps.django_app.utils import psa
 from social.apps.django_app.default.models import UserSocialAuth
 
 from oauth2_provider.settings import oauth2_settings
 from oauthlib.common import generate_token
-from oauth2_provider.models import AccessToken, Application, RefreshToken
+from oauth2_provider.models import AccessToken, Application
 from django.utils.timezone import now, timedelta
 from oauth2_provider.decorators import protected_resource
+import traceback
+
 
 def get_access_token(user):
     """
@@ -68,12 +70,16 @@ def social_register(request):
     return HttpResponseForbidden()
 
 
+@protected_resource()
 def revoke_token(request):
-    app = Application.objects.get(name="VaiTerCopaSim")
-
     # Deletes the access_token
     try:
-        pass
-        #AccessToken.objects.get(user=user, application=app).delete()
+        app = Application.objects.get(name="VaiTerCopaSim")
+        user = request.resource_owner
+        AccessToken.objects.get(user=user, application=app).delete()
     except:
-        pass
+        print 'User %s tried to revoke his token but an error happened. Please, see the stacktrace below' %(user.useremail)
+        print traceback.format_exc()
+
+    finally:
+        return HttpResponse()

@@ -26,9 +26,11 @@ def logger(fn):
 
         response = fn(*args, **kwargs)
 
-        response_class = response.__class__.__name__
-        status_code = response.status_code
-        log.debug('%s sent an HTTP Response of type %s with status code %s' % (name, response_class, status_code))
+        if response:
+            response_class = response.__class__.__name__
+            status_code = response.status_code
+            log.debug('%s sent an HTTP Response of type %s with status code %s' % (name, response_class, status_code))
+
         return response
     return inner
 
@@ -57,15 +59,14 @@ def needed_stickers(request):
     '''
     try:
         user = request.resource_owner
-        if not user:
-            return HttpResponseNotAllowed()
 
         if request.method == 'GET':
             needed = run_secure(NeededStickers.objects.filter, user__id=user.id)
             return JsonResponse([i.dict() for i in needed], safe=False)
 
         elif request.method == 'PUT':
-            stickers = request.REQUEST.get('stickers', None)
+            stickers = request.POST.get('stickers', None)
+            print stickers
             if stickers:
                 for i in stickers.split(','):
                     stick = run_secure(Sticker.objects.get, number=i)
@@ -74,7 +75,7 @@ def needed_stickers(request):
                 return JsonResponse({}, status=201)
 
         elif request.method == "DELETE":
-            sticker = request.REQUEST.get('sticker', None)
+            sticker = request.POST.get('sticker', None)
             if sticker:
                 stick = run_secure(Sticker.objects.get, number=sticker)
                 if stick:
@@ -102,17 +103,13 @@ def duplicated_stickers(request):
     '''
     try:
         user = request.resource_owner
-        #user_id = 1
-        #user = run_secure(User.objects.get, pk=user_id)
-        if not user:
-            return HttpResponseNotAllowed()
 
         if request.method == 'GET':
             needed = run_secure(DuplicatedStickers.objects.filter, user__id=user.id)
             return JsonResponse([i.dict() for i in needed], safe=False)
 
         elif request.method == 'PUT':
-            stickers = request.REQUEST.get('stickers', None)
+            stickers = request.POST.get('stickers', None)
             print stickers
             if stickers:
                 for i in stickers.split(','):
@@ -125,7 +122,7 @@ def duplicated_stickers(request):
                 return JsonResponse({}, status=201)
 
         elif request.method == "DELETE":
-            sticker = request.REQUEST.get('sticker', None)
+            sticker = request.POST.get('sticker', None)
             if sticker:
                 stick = run_secure(Sticker.objects.get, number=sticker)
                 if stick:

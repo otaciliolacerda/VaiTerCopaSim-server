@@ -53,6 +53,7 @@ MIDDLEWARE_CLASSES = (
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'stickerAPI.middleware.FillRequestMiddleware',
 )
 
 ROOT_URLCONF = 'VaiTerCopaSim.urls'

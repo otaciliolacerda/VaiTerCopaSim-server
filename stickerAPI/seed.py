@@ -4,6 +4,11 @@ __author__ = 'otacilio'
 from django.db.models import Q
 from models import *
 
+from oauth2_provider.models import Application, AccessToken
+from oauth2_provider.settings import oauth2_settings
+from oauthlib.common import generate_token
+from django.utils.timezone import now, timedelta
+
 
 def set_team(starting_sticker, ending_sticker, team):
     for s in Sticker.objects.filter(Q(order__gte=starting_sticker) & Q(order__lte=ending_sticker)):
@@ -18,8 +23,32 @@ def add_normal_stickers(starting_order_number, ending_order_number, order_offset
 
 
 def seed(create_user=False):
+    user = None
+    token = None
     if create_user:
-        User(username='otacilio', is_active=True, email='otaciliolacerda@gmail.com', password=u'pbkdf2_sha256$20000$dUqVC3Yg4Eaq$HEXxt7lM4vxhha3PMJbRCtyEkghdFpNub8tYzpe9XWk=').save()
+        user = User(username='otacilio', is_active=True, email='otaciliolacerda@gmail.com', password=u'pbkdf2_sha256$20000$dUqVC3Yg4Eaq$HEXxt7lM4vxhha3PMJbRCtyEkghdFpNub8tYzpe9XWk=')
+        user.save()
+
+        app = Application.objects.create(
+            redirect_uris=u'',
+            user_id=2,
+            name=u'VaiTerCopaSim',
+            client_type=u'confidential',
+            client_id=u'Cn8Vnam4iMVKVSLi0dc9dGb37IsG2Vs0aqVr1TXX',
+            skip_authorization=False,
+            client_secret=u'v9ZgkzyfageE7WefCRw6AqwibGZ3mPG9e0jxILGnNZlj031BAcaJ2l2IdMKEeBiihfx3Lusw6zgltp3siSoeJRjFHS6B9gdrplRRfF31IlAvqqDwyghDp9K0DIxIuSL9',
+            id=1,
+            authorization_grant_type=u'password')
+
+        expires = now() + timedelta(seconds=oauth2_settings.ACCESS_TOKEN_EXPIRE_SECONDS)
+
+        token = AccessToken.objects.create(
+            user=user, application=app,
+            expires=expires,
+            token=generate_token(),
+            scope="read write")
+
+
 
     # First, special sticker
     sticker = Sticker(number="00", order=0, image="00.jpg", team="Especiais")
@@ -92,3 +121,5 @@ def seed(create_user=False):
     set_team(626,644,"Coréia")
 
     set_team(645,648,"Propaganda")
+
+    return user, token
