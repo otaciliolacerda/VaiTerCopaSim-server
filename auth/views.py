@@ -43,7 +43,13 @@ def get_access_token(user):
         'access_token': access_token.token,
         'expires_in': oauth2_settings.ACCESS_TOKEN_EXPIRE_SECONDS,
         'token_type': 'Bearer',
-        'scope': access_token.scope
+        'scope': access_token.scope,
+        'user': {
+            'id': user.id,
+            'uid': user.social_user.uid,
+            'email': user.email,
+            'name': '%s %s' % (user.first_name, user.last_name)
+        }
     }
 
     return response_token
@@ -51,7 +57,7 @@ def get_access_token(user):
 
 @psa()
 def auth_by_token(request, backend):
-    user = request.backend.do_auth(request.REQUEST.get('access_token'))
+    user = request.backend.do_auth(request.GET.get('access_token'))
     if user and user.is_active:
         return user
     return None

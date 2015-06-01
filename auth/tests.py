@@ -10,7 +10,9 @@ class AuthorizationTests(TestCase):
 
     def setUp(self):
         # Set up data for the whole TestCase
-        self.user, self.token = seed(True)
+        users = seed(True)
+        self.user, self.token = users[0].get('user'), users[0].get('token')
+        self.user.social_user = Mock(uid=1)
         self.helper = RequestTestHelper('/api/v1/auth/login/', self.token)
 
     def test_login_new_user(self):
@@ -50,7 +52,7 @@ class AuthorizationTests(TestCase):
     def test_revoke_token(self):
         data = {'access_token': 'valid_facebook_token'}
 
-        request = self.helper.get_request('get', {})
+        request = self.helper.get_request('get')
         response = views.revoke_token(request)
 
         self.assertEqual(response.status_code, 200)

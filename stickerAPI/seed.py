@@ -4,6 +4,7 @@ __author__ = 'otacilio'
 from django.db.models import Q
 from models import *
 
+from social.apps.django_app.default.models import UserSocialAuth
 from oauth2_provider.models import Application, AccessToken
 from oauth2_provider.settings import oauth2_settings
 from oauthlib.common import generate_token
@@ -22,13 +23,9 @@ def add_normal_stickers(starting_order_number, ending_order_number, order_offset
         sticker.save()
 
 
-def seed(create_user=False):
-    user = None
-    token = None
+def seed(create_user=False, number_of_users=1):
+    users = []
     if create_user:
-        user = User(username='otacilio', is_active=True, email='otaciliolacerda@gmail.com', password=u'pbkdf2_sha256$20000$dUqVC3Yg4Eaq$HEXxt7lM4vxhha3PMJbRCtyEkghdFpNub8tYzpe9XWk=')
-        user.save()
-
         app = Application.objects.create(
             redirect_uris=u'',
             user_id=2,
@@ -40,13 +37,20 @@ def seed(create_user=False):
             id=1,
             authorization_grant_type=u'password')
 
-        expires = now() + timedelta(seconds=oauth2_settings.ACCESS_TOKEN_EXPIRE_SECONDS)
+        for i in range(number_of_users):
+            username = 'test' + str(i)
+            email = 'test' + str(i) + '@gmail.com'
+            user = User.objects.create(username=username, is_active=True, email=email, password=u'pbkdf2_sha256$20000$dUqVC3Yg4Eaq$HEXxt7lM4vxhha3PMJbRCtyEkghdFpNub8tYzpe9XWk=')
+            UserSocialAuth.objects.create(user=user, provider='facebook', uid=str(user.id))
 
-        token = AccessToken.objects.create(
-            user=user, application=app,
-            expires=expires,
-            token=generate_token(),
-            scope="read write")
+            expires = now() + timedelta(seconds=oauth2_settings.ACCESS_TOKEN_EXPIRE_SECONDS)
+            token = AccessToken.objects.create(
+                user=user, application=app,
+                expires=expires,
+                token=generate_token(),
+                scope="read write")
+
+            users.append({"user": user, "token": token})
 
 
 
@@ -122,4 +126,4 @@ def seed(create_user=False):
 
     set_team(645,648,"Propaganda")
 
-    return user, token
+    return users
