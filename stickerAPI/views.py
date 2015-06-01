@@ -1,14 +1,14 @@
 # -*- coding: utf-8 -*-
 
-from django.http import JsonResponse as InnerJsonResponse
-from django.http import HttpResponse, HttpResponseBadRequest
-from django.db.models.base import ModelBase
-from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
-from seed import *
 import logging
 import sys
-from oauth2_provider.decorators import protected_resource
 from json import JSONEncoder
+from models import *
+from django.http import JsonResponse as InnerJsonResponse
+from django.http import HttpResponseBadRequest
+from django.db.models.base import ModelBase
+from django.core.exceptions import ObjectDoesNotExist, MultipleObjectsReturned
+from oauth2_provider.decorators import protected_resource
 
 
 log = logging.getLogger("[VaiTerCopaSim]")

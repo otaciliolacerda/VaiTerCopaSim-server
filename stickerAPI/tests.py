@@ -1,6 +1,8 @@
-from views import *
 from django.http import QueryDict
 from django.test import TestCase, RequestFactory
+
+from stickerAPI.management.commands.seed import seed
+from views import *
 
 
 def json(obj):

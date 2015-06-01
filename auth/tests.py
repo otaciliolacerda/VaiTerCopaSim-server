@@ -1,9 +1,10 @@
 from django.test import TestCase
-import views
-from stickerAPI.tests import RequestTestHelper
-from stickerAPI.seed import seed
 from mock import Mock
 from oauth2_provider.models import AccessToken, Application
+
+from stickerAPI.management.commands.seed import seed
+from stickerAPI.tests import RequestTestHelper
+import views
 
 
 class AuthorizationTests(TestCase):

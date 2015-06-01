@@ -32,12 +32,21 @@ You need to set three environment variables:
 
 Installation
 ---
-After download the code  and install the dependencies, run:
+After download the code, set the environment variables and install the dependencies, run:
 
 ```python
 python manage.py migrate
+python manage.py runserver
+```
+
+Data
+---
+To create all the stickers in database run:
+
+```python
+python manage.py seed
 ```
 
 License
---
+---
 Do whatever you want. =)

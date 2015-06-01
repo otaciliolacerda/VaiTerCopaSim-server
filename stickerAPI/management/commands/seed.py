@@ -2,13 +2,24 @@
 __author__ = 'otacilio'
 
 from django.db.models import Q
-from models import *
+from stickerAPI.models import *
 
 from social.apps.django_app.default.models import UserSocialAuth
 from oauth2_provider.models import Application, AccessToken
 from oauth2_provider.settings import oauth2_settings
 from oauthlib.common import generate_token
 from django.utils.timezone import now, timedelta
+from django.core.management.base import BaseCommand
+
+
+class Command(BaseCommand):
+    args = ''
+    help = 'Creates all the stickers in database.'
+
+    def handle(self, *args, **options):
+        print "SEED STARTED"
+        seed()
+        print "SEED STOPPED"
 
 
 def set_team(starting_sticker, ending_sticker, team):
