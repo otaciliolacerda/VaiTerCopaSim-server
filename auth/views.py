@@ -1,7 +1,5 @@
 from django.http import HttpResponseBadRequest, HttpResponseForbidden, JsonResponse, HttpResponse
 from social.apps.django_app.utils import psa
-from social.apps.django_app.default.models import UserSocialAuth
-
 from oauth2_provider.settings import oauth2_settings
 from oauthlib.common import generate_token
 from oauth2_provider.models import AccessToken, Application
@@ -69,7 +67,6 @@ def social_register(request):
         if user:
             return JsonResponse(get_access_token(user))
     except Exception as err:
-        import traceback
         print traceback.format_exc()
         return HttpResponseBadRequest(str(err))
 

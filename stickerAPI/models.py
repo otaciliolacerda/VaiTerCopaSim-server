@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+from django.conf import settings
 
 
 # Create your models here.
@@ -11,7 +12,8 @@ class Sticker(models.Model):
     image = models.CharField(max_length=300)
 
     def dict(self):
-        return {"number": self.number, "order": self.order, "name": self.name, "team": self.team, "image": self.image}
+        return {"number": self.number, "order": self.order, "name": self.name, "team": self.team,
+                "image": '%s%s' % (settings.STICKER_IMG_PREFIX, self.image)}
 
     def __str__(self):
         return "Number: %s" % str(self.number)
