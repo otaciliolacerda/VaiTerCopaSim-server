@@ -105,7 +105,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.8/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = '/app/'
+STATICFILES_FINDERS = (
+    'django.contrib.staticfiles.finders.FileSystemFinder',
+    #'django.contrib.staticfiles.finders.AppDirectoriesFinder',
+    #'django.contrib.staticfiles.finders.DefaultStorageFinder',
+)
+STATICFILES_DIRS = (
+    os.path.join(BASE_DIR, '../VaiTerCopaSim-client/app/'),
+)
 
 CORS_URLS_REGEX = r'^/api/v1/.*$'
 CORS_ORIGIN_ALLOW_ALL = True

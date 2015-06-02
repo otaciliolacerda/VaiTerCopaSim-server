@@ -16,9 +16,19 @@ Including another URLconf
 from django.conf.urls import include, url
 from django.contrib import admin
 
+
 urlpatterns = [
     #url(r'^admin/', include(admin.site.urls)),
     #url(r'^o/', include('oauth2_provider.urls', namespace='oauth2_provider')),
-    url(r'^api/v1/', include('stickerAPI.urls')),
     url(r'^api/v1/auth/', include('auth.urls')),
+    url(r'^api/v1/', include('stickerAPI.urls')),
 ]
+
+
+from django.conf import settings
+from django.contrib.staticfiles import views
+
+if settings.DEBUG:
+    urlpatterns += [
+        url(r'^app/', views.serve),
+        ]

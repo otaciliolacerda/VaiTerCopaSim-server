@@ -35,19 +35,21 @@ def add_normal_stickers(starting_order_number, ending_order_number, order_offset
 
 
 def seed(create_user=False, number_of_users=1):
+    user = User.objects.create(username='default', is_active=False, email='default@default.com')
+
+    app = Application.objects.create(
+        redirect_uris=u'',
+        user_id=user.id,
+        name=u'VaiTerCopaSim',
+        client_type=u'confidential',
+        client_id=u'Cn8Vnam4iMVKVSLi0dc9dGb37IsG2Vs0aqVr1TXX',
+        skip_authorization=False,
+        client_secret=u'v9ZgkzyfageE7WefCRw6AqwibGZ3mPG9e0jxILGnNZlj031BAcaJ2l2IdMKEeBiihfx3Lusw6zgltp3siSoeJRjFHS6B9gdrplRRfF31IlAvqqDwyghDp9K0DIxIuSL9',
+        id=1,
+        authorization_grant_type=u'password')
+
     users = []
     if create_user:
-        app = Application.objects.create(
-            redirect_uris=u'',
-            user_id=2,
-            name=u'VaiTerCopaSim',
-            client_type=u'confidential',
-            client_id=u'Cn8Vnam4iMVKVSLi0dc9dGb37IsG2Vs0aqVr1TXX',
-            skip_authorization=False,
-            client_secret=u'v9ZgkzyfageE7WefCRw6AqwibGZ3mPG9e0jxILGnNZlj031BAcaJ2l2IdMKEeBiihfx3Lusw6zgltp3siSoeJRjFHS6B9gdrplRRfF31IlAvqqDwyghDp9K0DIxIuSL9',
-            id=1,
-            authorization_grant_type=u'password')
-
         for i in range(number_of_users):
             username = 'test' + str(i)
             email = 'test' + str(i) + '@gmail.com'
