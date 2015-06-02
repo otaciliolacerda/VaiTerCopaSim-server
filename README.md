@@ -39,8 +39,31 @@ python manage.py migrate
 python manage.py runserver
 ```
 
+Client
+---
+If you are using [VaiTerCopaSim-client](https://github.com/otaciliolacerda/VaiTerCopaSim-client) you can let Django handle all the static files (html, css, js, etc). To do that you need to change the path to the client app:
+
+settings.py
+```python
+ STATICFILES_DIRS = (
+     os.path.join(BASE_DIR, '../VaiTerCopaSim-client/app/'),
+ )
+```
+By default the static files will be available at /app/ but you can change this path:
+
+settings.py
+```python
+ STATIC_URL = '/app/'
+```
+
+Example of access url: http://localhost:8000/app/index.html
+
+In you client, remember to set the backend URL to http://localhost:8000/api/v1/
+
 Data
 ---
+By default VaiTerCopaSim-server will use SQLite3 database.
+
 To create all the stickers in database run:
 
 ```python
