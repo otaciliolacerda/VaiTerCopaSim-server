@@ -5,7 +5,7 @@ Personal project to study Django, AngularJS, RESTFull web services and One Page 
 * [Original project](https://github.com/wormangel/VaiTerCopaSim)
 * [VaiTerCopaSim-client](https://github.com/otaciliolacerda/VaiTerCopaSim-client) - Client made in AngularJS
 
-* See it running at [here](http://otaciliolacerda.pythonanywhere.com/) at PythonAnywhere!
+* See it running [here](http://otaciliolacerda.pythonanywhere.com/) at PythonAnywhere!
 
 Features
 ---
